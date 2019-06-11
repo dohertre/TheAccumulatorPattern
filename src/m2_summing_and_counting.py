@@ -139,6 +139,36 @@ def run_test_count_sines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected2 = 2
+    answer2 = count_sines_from(1, 4)
+    print('Test 1 expected:', expected2)
+    print('       actual:  ', answer2)
+
+    # Test 3:
+    expected3 = 5
+    answer3 = count_sines_from(-6, 1)
+    print('Test 1 expected:', expected3)
+    print('       actual:  ', answer3)
+
+    # Test 4:
+    expected4 = 2
+    answer4 = count_sines_from(5, 8)
+    print('Test 1 expected:', expected4)
+    print('       actual:  ', answer4)
+
+    # Test 5:
+    expected5 = 2
+    answer5 = count_sines_from(2, 4)
+    print('Test 1 expected:', expected5)
+    print('       actual:  ', answer5)
+
+    # Test 6:
+    expected6 = 4
+    answer6 = count_sines_from(-3, 2)
+    print('Test 1 expected:', expected6)
+    print('       actual:  ', answer6)
+
 
 def count_sines_from(m, n):
     """

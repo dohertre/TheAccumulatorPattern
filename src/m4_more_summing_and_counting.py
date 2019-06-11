@@ -338,6 +338,17 @@ def run_test_sum_unit_fractions_from():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected = 6.853
+    answer = sum_unit_fractions_from(10, 9000)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 0.6105842687
+    answer = sum_unit_fractions_from(10, 17)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 def sum_unit_fractions_from(m, n):
     """
@@ -359,7 +370,11 @@ def sum_unit_fractions_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(m, n + 1):
+        total = total + (1/k)
 
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

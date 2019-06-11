@@ -296,7 +296,16 @@ def count_sines_vs_cosines(m):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(m):
+        if math.sin(k) > math.cos(k):
+            total = total + 1
+        elif math.sin(-k) > math.cos(-k):
+            total = total + 1
+        else:
+            total = total + 0
 
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

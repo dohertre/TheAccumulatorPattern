@@ -147,57 +147,18 @@ def run_test_draw_lines():
 
 
 def draw_lines(n, point, window):
-    """
-    What comes in: The three arguments are:
-      -- A integer n that is at least 2.
-      -- An rg.Point.
-      -- An rg.RoseWindow.
-    What goes out:  Nothing (i.e., None).
-    Side effects:
-      See   draw_lines.pdf   in this project for pictures that
-        may help you better understand the following specification:
-
-      Draws  n  rg.Lines on the given rg.RoseWindow, such that:
-        -- The leftmost point of each of the rg.Lines
-             is the given rg.Point.
-     -- For the rightmost point of each of the lines:
-         -- Its x-coordinate is (pX + 100),
-              where pX is the x-coordinate of the given rg.Point.
-         -- The y-coordinates of the lines vary evenly
-              from  (pY - 100)  to  (pY + 100),
-              where pY is the y-coordinate of the given rg.Point.
-      Must  ** render **     but   ** NOT close **   the window.
-
-    Type hints:
-      :type n: int
-      :type point: rg.Point
-      :type window: rg.RoseWindow
-    """
-    # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
-    #          Tests have been written for you (above).
-    #
-    # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
-    #             as in   draw_row_of_circles   in m1e,
-    #             instead of directly using the loop variable.
-    #
-    ####################################################################
-    # HINT: To figure out the code that computes the necessary
-    #       endpoints for each line,
-    #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
-    ####################################################################
-    # ------------------------------------------------------------------
     pX = point.x
     pY = point.y
 
-    for k in range(n):
-        point = rg.Point(pX, pY)
-        total = 0
-        for j in range(n):
+    point = rg.Point(pX, pY)
+    pY2 = -100
 
-        point2 = rg.Point((pX + 100), (pY))
+    for k in range(n):
+
+        point2 = rg.Point((pX + 100), (pY2))
         line = rg.Line(point, point2)
         line.attach_to(window)
+        pY2 = pY2 + (200 / n)
 
     window.render()
 

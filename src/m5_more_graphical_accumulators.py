@@ -13,6 +13,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
+import math
 
 
 # ----------------------------------------------------------------------
@@ -111,21 +112,21 @@ def draw_squares_from_circle(n, circle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    circle.attach_to(window)
+
     x = point.x
     y = point.y
 
     point = rg.Point(x, y)
     circle = rg.Circle(point, radius)
 
-    circle.attach_to(window)
+    for _ in range(n):
 
-    # for k in range(n):
-    #     point = rg.Point(x, y)
-    #     circle = rg.Circle(point, radius)
-    #
-    #     circle.attach_to(window)
-    #
-    #     x = x + (radius * 2)
+
+        circle.attach_to(window)
+
+        x = x + (radius * 2)
 
     window.render()
 
@@ -297,7 +298,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
-
+    rectangle1.attach_to(window)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

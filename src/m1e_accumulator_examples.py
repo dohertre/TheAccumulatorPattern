@@ -236,7 +236,7 @@ def draw_row_of_circles(n, point, color, window):
         # Increment x (and in other problems, other variables)
         # for the thing(s) to draw in the NEXT iteration of the loop.
         # --------------------------------------------------------------
-        y = y + 30
+        x = x + (radius * 2)
 
     window.render()
 

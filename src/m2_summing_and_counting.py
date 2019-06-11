@@ -71,13 +71,13 @@ def run_test_sum_more_cosines():
     # Test 2:
     expected2 = 1.664457776
     answer2 = sum_more_cosines(-1, 2)
-    print('Test 1 expected:', expected2, '(approximately)')
+    print('Test 2 expected:', expected2, '(approximately)')
     print('       actual:  ', answer2)
 
     # Test 3:
     expected3 = 0.674465279
     answer3 = sum_more_cosines(-3, 1)
-    print('Test 1 expected:', expected3, '(approximately)')
+    print('Test 3 expected:', expected3, '(approximately)')
     print('       actual:  ', answer3)
 
 
@@ -142,31 +142,31 @@ def run_test_count_sines_from():
     # Test 2:
     expected2 = 2
     answer2 = count_sines_from(1, 4)
-    print('Test 1 expected:', expected2)
+    print('Test 2 expected:', expected2)
     print('       actual:  ', answer2)
 
     # Test 3:
     expected3 = 5
     answer3 = count_sines_from(-6, 1)
-    print('Test 1 expected:', expected3)
+    print('Test 3 expected:', expected3)
     print('       actual:  ', answer3)
 
     # Test 4:
     expected4 = 2
     answer4 = count_sines_from(5, 8)
-    print('Test 1 expected:', expected4)
+    print('Test 4 expected:', expected4)
     print('       actual:  ', answer4)
 
     # Test 5:
     expected5 = 2
     answer5 = count_sines_from(2, 4)
-    print('Test 1 expected:', expected5)
+    print('Test 5 expected:', expected5)
     print('       actual:  ', answer5)
 
     # Test 6:
     expected6 = 4
     answer6 = count_sines_from(-3, 2)
-    print('Test 1 expected:', expected6)
+    print('Test 6 expected:', expected6)
     print('       actual:  ', answer6)
 
 
@@ -210,7 +210,7 @@ def count_sines_from(m, n):
 def run_test_count_sines_vs_cosines():
     """ Tests the   count_sines_vs_cosines   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  count_sines_vs_cosines  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -232,6 +232,36 @@ def run_test_count_sines_vs_cosines():
     # TO DO: 6 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
+
+    # Test 2:
+    expected2 = 100
+    answer2 = count_sines_vs_cosines(101)
+    print('Test 2 expected:', expected2)
+    print('       actual:  ', answer2)
+
+    # Test 3:
+    expected3 = 1
+    answer3 = count_sines_vs_cosines(1)
+    print('Test 3 expected:', expected3)
+    print('       actual:  ', answer3)
+
+    # Test 4:
+    expected4 = 2
+    answer4 = count_sines_vs_cosines(2)
+    print('Test 4 expected:', expected4)
+    print('       actual:  ', answer4)
+
+    # Test 5:
+    expected5 = 6
+    answer5 = count_sines_vs_cosines(5)
+    print('Test 5 expected:', expected5)
+    print('       actual:  ', answer5)
+
+    # Test 6:
+    expected6 = 6
+    answer6 = count_sines_vs_cosines(6)
+    print('Test 6 expected:', expected6)
+    print('       actual:  ', answer6)
 
 
 def count_sines_vs_cosines(m):

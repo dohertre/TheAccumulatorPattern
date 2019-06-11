@@ -10,6 +10,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          their colleagues and Rebekah Doherty.
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
+import math
 
 # ----------------------------------------------------------------------
 # Students: As you work each of these problems, ask yourself:
@@ -106,7 +107,11 @@ def sum_more_cosines(m, n):
     #   Just   range(blah)   where blah is a single variable.
     #   Reason: To ensure that you get more practice using variables.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(m,(n+1)):
+        total = total + math.cos(k)
 
+    return total
 
 def run_test_count_sines_from():
     """ Tests the   count_sines_from   function. """

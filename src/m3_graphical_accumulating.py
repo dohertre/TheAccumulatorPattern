@@ -187,7 +187,19 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    pX = point.x
+    pY = point.y
 
+    for k in range(n):
+        point = rg.Point(pX, pY)
+        total = 0
+        for j in range(n):
+
+        point2 = rg.Point((pX + 100), (pY))
+        line = rg.Line(point, point2)
+        line.attach_to(window)
+
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

@@ -197,14 +197,14 @@ def count_sines_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
-    total = 0
+    count = 0
     for k in range(m, (n + 1)):
         if math.sin(k) <= 0.5:
-            total = total + 1
+            count = count + 1
         else:
-            total = total + 0
+            count = count + 0
 
-    return total
+    return count
 
 
 def run_test_count_sines_vs_cosines():
@@ -234,8 +234,8 @@ def run_test_count_sines_vs_cosines():
     # ------------------------------------------------------------------
 
     # Test 2:
-    expected2 = 100
-    answer2 = count_sines_vs_cosines(101)
+    expected2 = 0
+    answer2 = count_sines_vs_cosines(0)
     print('Test 2 expected:', expected2)
     print('       actual:  ', answer2)
 
@@ -246,8 +246,8 @@ def run_test_count_sines_vs_cosines():
     print('       actual:  ', answer3)
 
     # Test 4:
-    expected4 = 2
-    answer4 = count_sines_vs_cosines(2)
+    expected4 = 4
+    answer4 = count_sines_vs_cosines(3)
     print('Test 4 expected:', expected4)
     print('       actual:  ', answer4)
 
@@ -289,23 +289,22 @@ def count_sines_vs_cosines(m):
       -- Also:  count_sines_vs_cosines(101) returns 100 (trust me!)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
-    total = 0
-    for k in range(m):
-        if math.sin(k) > math.cos(k):
-            total = total + 1
-        elif math.sin(-k) > math.cos(-k):
-            total = total + 1
+    count = 0
+    n = -m
+    for k in range(n,m):
+        if math.sin(k) >= math.cos(k):
+            count = count + 1
         else:
-            total = total + 0
+            count = count + 0
 
-    return total
+    return count
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

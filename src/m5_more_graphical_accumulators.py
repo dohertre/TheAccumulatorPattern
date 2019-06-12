@@ -13,7 +13,6 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-import math
 
 
 # ----------------------------------------------------------------------
@@ -112,21 +111,22 @@ def draw_squares_from_circle(n, circle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
-
     circle.attach_to(window)
+    window.render()
 
-    x = point.x
-    y = point.y
+    center = circle.center
+    radius = circle.radius
 
-    point = rg.Point(x, y)
-    circle = rg.Circle(point, radius)
+    pointx = center.x + radius
+    pointy = center.y + radius
 
-    for _ in range(n):
-
-
-        circle.attach_to(window)
-
-        x = x + (radius * 2)
+    for k in range(n):
+        rec1 = rg.Point(pointx, pointy)
+        rec2 = rg.Point((pointx - 2 * radius), (pointy - 2 * radius))
+        rectangle = rg.Rectangle(rec1, rec2)
+        rectangle.attach_to(window)
+        pointx = pointx + (n*(1/2))
+        pointy = pointy + (n*(1/2))
 
     window.render()
 

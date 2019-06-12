@@ -365,7 +365,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -379,6 +379,67 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     ####################################################################
     # ------------------------------------------------------------------
     rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    window.render()
+
+    corner1A = rectangle1.corner_1
+    corner2A = rectangle1.corner_2
+
+    x1A = corner1A.x
+    y1A = corner1A.y
+    x2A = corner2A.x
+    y2A = corner2A.y
+
+    corner1B = rectangle2.corner_1
+    corner2B = rectangle2.corner_2
+
+    x1B = corner1B.x
+    y1B = corner1B.y
+    x2B = corner2B.x
+    y2B = corner2B.y
+
+    x_center_rec_1 = ((x1A + x2A)/2)
+    y_center_rec_1 = ((y1A + y2A)/2)
+
+    x_center_rec_2 = ((x1B + x2B)/2)
+    y_center_rec_2 = ((y1B + y2B)/2)
+
+    r1 = abs(x1A - x2A)
+    r2 = abs(y2A - y1A)
+
+    for k in range(n):
+        pointA = rg.Point(x_center_rec_1, y_center_rec_1)
+        pointB = rg.Point(x_center_rec_2, y_center_rec_2)
+
+        line1 = rg.Line(pointA, pointB)
+
+        line1.thickness = 5
+        line1.color = rectangle1.outline_color
+
+        line1.attach_to(window)
+
+        line2_corner = rg.Point(x2A, y2A)
+        line2_corner2 = rg.Point(x1B - (r1/2), y1B + (r2/2))
+
+        line2 = rg.Line(line2_corner, line2_corner2)
+        line2.thickness = 5
+        line2.color = rectangle2.outline_color
+
+        line2.attach_to(window)
+
+        x_center_rec_1 = x_center_rec_1 - r1
+        y_center_rec_1 = y_center_rec_1 + r2
+
+        x_center_rec_2 = x_center_rec_2 - r1
+        y_center_rec_2 = y_center_rec_2 + r2
+
+        x2A = x2A - r1
+        y1B = y1B + r2
+
+    window.render()
+
+
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

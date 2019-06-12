@@ -13,7 +13,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
+import math
 
 # ----------------------------------------------------------------------
 # Students: As you work each of these problems, ask yourself:
@@ -98,7 +98,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -165,7 +165,7 @@ def run_test_draw_circles_from_rectangle():
     draw_circles_from_rectangle(4, 5, rectangle, window1)
 
     # Test 2:
-    rectangle = rg.Rectangle(rg.Point(550, 450), rg.Point(600,400))
+    rectangle = rg.Rectangle(rg.Point(500, 450), rg.Point(600,400))
     rectangle.thickness = 3
     rectangle.fill_color = 'blue'
     rectangle.outline_color = 'red'
@@ -253,12 +253,23 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     x2 = corner2.x
     y2 = corner2.y
 
-    height = y2 - y1 #MAYBE ABS
-    width = x2 - x1
+    height = abs(y2 - y1)
+    width = abs(x2 - x1)
 
-    for k in range(n):
-        circle_radius = height / 2
-        circle_point = #finish here 
+    circle_radius = height / 2
+    point1 = (x1 + x2) / 2
+    point2 = (y1 + y2) / 2
+
+    for k in range(m):
+        circle_center = rg.Point(point1, point2)
+        circle = rg.Circle(circle_center, circle_radius)
+        circle.fill_color = rectangle.fill_color
+
+        circle.attach_to(window)
+
+        point1 = point1 - (circle_radius * 2)
+
+    window.render()
 
 
 def run_test_draw_lines_from_rectangles():

@@ -188,6 +188,7 @@ def run_test_draw_circles_from_rectangle():
 
     window2.close_on_mouse_click()
 
+
 def draw_circles_from_rectangle(m, n, rectangle, window):
     """
     What comes in:  Four arguments:
@@ -241,6 +242,23 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    rectangle.attach_to(window)
+    window.render()
+
+    corner1 = rectangle.corner_1
+    corner2 = rectangle.corner_2
+
+    x1 = corner1.x
+    y1 = corner1.y
+    x2 = corner2.x
+    y2 = corner2.y
+
+    height = y2 - y1 #MAYBE ABS
+    width = x2 - x1
+
+    for k in range(n):
+        circle_radius = height / 2
+        circle_point = #finish here 
 
 
 def run_test_draw_lines_from_rectangles():

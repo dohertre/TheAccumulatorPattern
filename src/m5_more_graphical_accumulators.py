@@ -125,8 +125,8 @@ def draw_squares_from_circle(n, circle, window):
         rec2 = rg.Point((pointx - 2 * radius), (pointy - 2 * radius))
         rectangle = rg.Rectangle(rec1, rec2)
         rectangle.attach_to(window)
-        pointx = pointx + (n*(1/2))
-        pointy = pointy + (n*(1/2))
+        pointx = pointx + (radius)
+        pointy = pointy + (radius)
 
     window.render()
 
@@ -177,7 +177,7 @@ def run_test_draw_circles_from_rectangle():
     # ------------------------------------------------------------------
     title = 'Test 3 of DRAW_SQUARES_FROM_CIRCLE: '
     title += ' 20 teeny squares from blue circle!'
-    window2 = rg.RoseWindow(525, 300, title)
+    window2 = rg.RoseWindow(620, 380, title)
 
     # Test 3:
     rectangle = rg.Rectangle(rg.Point(375, 330), rg.Point(350, 280))
@@ -229,7 +229,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -256,18 +256,34 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     height = abs(y2 - y1)
     width = abs(x2 - x1)
 
-    circle_radius = height / 2
-    point1 = (x1 + x2) / 2
+    point1 = ((x1 + x2) / 2)
     point2 = (y1 + y2) / 2
 
+    circle_radius = height / 2
+    start = x1 - circle_radius
+    circle_center = rg.Point(start, point2)
+    circle = rg.Circle(circle_center, circle_radius)
+
     for k in range(m):
-        circle_center = rg.Point(point1, point2)
-        circle = rg.Circle(circle_center, circle_radius)
+        start = (start - (circle_radius * 2))
         circle.fill_color = rectangle.fill_color
 
         circle.attach_to(window)
+        circle_center = rg.Point(start, point2)
+        circle = rg.Circle(circle_center, circle_radius)
 
-        point1 = point1 - (circle_radius * 2)
+    circle_radius2 = width / 2
+    start2 = y1 - circle_radius2
+    circle_center2 = rg.Point(point1, start2)
+    circle2 = rg.Circle(circle_center2, circle_radius2)
+
+    for j in range(n):
+        start2 = (start2 - (circle_radius2 * 2))
+        circle2.outline_color = rectangle.outline_color
+
+        circle2.attach_to(window)
+        circle_center2 = rg.Point(point1, start2)
+        circle2 = rg.Circle(circle_center2, circle_radius2)
 
     window.render()
 
